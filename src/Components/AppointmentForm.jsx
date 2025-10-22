@@ -81,20 +81,45 @@ if (!formData.phone.trim()) {
     }
 
     // Preferred Date
-    if (!formData.date) {
-      newErrors.date = "Preferred date is required";
+  // Preferred Date & Time Validation
+  const now = new Date();
+
+  if (!formData.date) {
+    newErrors.date = "Preferred date is required";
+    isValid = false;
+  } else {
+    const selectedDate = new Date(formData.date);
+    selectedDate.setHours(0, 0, 0, 0);
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    if (selectedDate < today) {
+      newErrors.date = "Preferred date cannot be in the past";
       isValid = false;
     }
+  }
 
-    // Preferred Time
-    if (!formData.time) {
-      newErrors.time = "Preferred time is required";
+  if (!formData.time) {
+    newErrors.time = "Preferred time is required";
+    isValid = false;
+  } else if (formData.date) {
+    const selectedDateTime = new Date(`${formData.date}T${formData.time}`);
+    const timeDiff = (selectedDateTime - now) / (1000 * 60 * 60); // in hours
+
+    // If date is today and time < 1 hour ahead
+    const selectedDate = new Date(formData.date);
+    if (
+      selectedDate.toDateString() === now.toDateString() &&
+      timeDiff < 1
+    ) {
+      newErrors.time = "Time must be at least 1 hour ahead of current time";
       isValid = false;
     }
+  }
 
-    setErrors(newErrors);
-    return isValid;
-  };
+  setErrors(newErrors);
+  return isValid;
+};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -139,8 +164,10 @@ if (!formData.phone.trim()) {
                 type="text"
                 placeholder="John Doe"
                 value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+                onChange={(e) => {
+                    setFormData({ ...formData, name: e.target.value });
+                    if (errors.name) setErrors({ ...errors, name: "" });
+                  }}                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
                   errors.name ? "border-red-500" : ""
                 }`}
               />
@@ -156,8 +183,10 @@ if (!formData.phone.trim()) {
                 type="number"
                 placeholder="e.g., 35"
                 value={formData.age}
-                onChange={(e) => setFormData({ ...formData, age: e.target.value })}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+                onChange={(e) => {
+                    setFormData({ ...formData, age: e.target.value });
+                    if (errors.age) setErrors({ ...errors, age: "" });
+                  }}                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
                   errors.age ? "border-red-500" : ""
                 }`}
               />
@@ -171,8 +200,10 @@ if (!formData.phone.trim()) {
               </label>
               <select
                 value={formData.gender}
-                onChange={(e) => setFormData({ ...formData, gender: e.target.value })}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+                onChange={(e) => {
+                    setFormData({ ...formData, gender: e.target.value });
+                    if (errors.gender) setErrors({ ...errors, gender: "" });
+                  }}                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
                   errors.gender ? "border-red-500" : ""
                 }`}
               >
@@ -184,41 +215,46 @@ if (!formData.phone.trim()) {
               {errors.gender && <p className="text-red-500 text-sm">{errors.gender}</p>}
             </div>
 
-            {/* Phone / WhatsApp */}
-            <div className="md:col-span-2">
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Phone / WhatsApp
-              </label>
-              <PhoneInput
-                country={"in"}
-                value={formData.phone}
-                onChange={handlePhoneChange}
-                enableSearch={true}
-                inputClass="!w-full !py-5 !pl-12 !pr-4 !border !rounded-lg !focus:ring-2 !focus:ring-blue-500 !focus:outline-none"
-                containerClass="!w-full"
-                buttonClass="!border-none !bg-transparent"
-                inputStyle={{ width: "100%", fontSize: "16px" }}
-                placeholder="6380085913"
-              />
-              {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
-            </div>
 
-            {/* Email */}
-            <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email
-              </label>
-              <input
-                type="email"
-                placeholder="you@example.com"
-                value={formData.email}
-                onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
-                  errors.email ? "border-red-500" : ""
-                }`}
-              />
-              {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
-            </div>
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    Phone / WhatsApp
+  </label>
+  <PhoneInput
+    country={"in"}
+    value={formData.phone}
+    onChange={(value, countryData) => {
+        handlePhoneChange(value, countryData);
+        if (errors.phone) setErrors({ ...errors, phone: "" });
+      }}    enableSearch={true}
+    inputClass="!w-full !py-6 !pl-12 !pr-4 !border !rounded-lg !focus:ring-2 !focus:ring-blue-500 !focus:outline-none"
+    containerClass="!w-full"
+    buttonClass="!border-none !bg-transparent "
+    inputStyle={{ width: "100%", fontSize: "16px" }}
+    placeholder={country === "in" ? "6380085913" : "Enter phone number"}
+  />
+  {errors.phone && <p className="text-red-500 text-sm">{errors.phone}</p>}
+</div>
+
+{/* Email */}
+<div>
+  <label className="block text-sm font-medium text-gray-700 mb-1">
+    Email
+  </label>
+  <input
+    type="email"
+    placeholder="you@example.com"
+    value={formData.email}
+    onChange={(e) => {
+        setFormData({ ...formData, email: e.target.value });
+        if (errors.email) setErrors({ ...errors, email: "" });
+      }}    className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+      errors.email ? "border-red-500" : ""
+    }`}
+  />
+  {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
+</div>
+
 
             {/* Primary Concern */}
             <div className="md:col-span-2">
@@ -227,9 +263,10 @@ if (!formData.phone.trim()) {
               </label>
               <select
                 value={formData.primaryConcern}
-                onChange={(e) =>
-                  setFormData({ ...formData, primaryConcern: e.target.value })
-                }
+                onChange={(e) => {
+                    setFormData({ ...formData, primaryConcern: e.target.value });
+                    if (errors.primaryConcern) setErrors({ ...errors, primaryConcern: "" });
+                  }}
                 className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
                   errors.primaryConcern ? "border-red-500" : ""
                 }`}
@@ -254,8 +291,11 @@ if (!formData.phone.trim()) {
               <input
                 type="date"
                 value={formData.date}
-                onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+                onChange={(e) => {
+                    setFormData({ ...formData, date: e.target.value });
+                    if (errors.date) setErrors({ ...errors, date: "" });
+                  }}
+                                  className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
                   errors.date ? "border-red-500" : ""
                 }`}
               />
@@ -270,8 +310,10 @@ if (!formData.phone.trim()) {
               <input
                 type="time"
                 value={formData.time}
-                onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
+                onChange={(e) => {
+                    setFormData({ ...formData, time: e.target.value });
+                    if (errors.time) setErrors({ ...errors, time: "" });
+                  }}                className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none ${
                   errors.time ? "border-red-500" : ""
                 }`}
               />
@@ -284,17 +326,17 @@ if (!formData.phone.trim()) {
                 type="submit"
                 className="w-full bg-gradient-to-r from-blue-600 to-green-500 hover:from-blue-700 hover:to-green-600 text-white text-lg py-3 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
               >
-                Confirm My Appointment
+                Submit My Appointment
               </button>
             </div>
           </form>
 
-          <p className="text-center text-gray-500 text-sm mt-4">
+          {/* <p className="text-center text-gray-500 text-sm mt-4">
             Need to send emails?{" "}
             <a href="#" className="text-blue-600 hover:underline">
               Configure EmailJS
             </a>
-          </p>
+          </p> */}
         </div>
       </div>
     </section>
