@@ -55,6 +55,13 @@ const AppointmentForm = () => {
       isValid = false;
     }
 
+    // Phone / WhatsApp
+if (!formData.phone.trim()) {
+    newErrors.phone = "Phone number is required";
+    isValid = false;
+  }
+  
+
 
     // Email
     if (!formData.email.trim()) {
