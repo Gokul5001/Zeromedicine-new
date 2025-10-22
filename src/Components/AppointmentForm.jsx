@@ -55,14 +55,6 @@ const AppointmentForm = () => {
       isValid = false;
     }
 
-    // Phone / WhatsApp
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
-      isValid = false;
-    } else if (country === "in" && !/^\+91\d{10}$/.test("+" + formData.phone)) {
-      newErrors.phone = "Please enter a valid 10-digit Indian mobile number";
-      isValid = false;
-    }
 
     // Email
     if (!formData.email.trim()) {
