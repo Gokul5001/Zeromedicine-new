@@ -20,13 +20,15 @@ const HeroSection = ({ onBookAppointment }) => (
         transition={{ duration: 0.8 }}
         className="max-w-4xl mx-auto"
       >
-        <h1 className="text-xl md:text-6xl mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-snug font-normal">
-          Take Control of Your Health, Naturally.
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-700 mb-10 leading-relaxed">
-          From chronic pain to lifestyle disorders — we bring you personalized,
-          non-invasive care backed by technology and science.
-        </p>
+   <h1 className="text-3xl sm:text-4xl md:text-6xl mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-snug">
+  Take Control of Your Health, Naturally.
+</h1>
+
+<p className="text-base sm:text-lg md:text-2xl text-gray-700 mb-10 leading-relaxed">
+  From chronic pain to lifestyle disorders — we bring you personalized,
+  non-invasive care backed by technology and science.
+</p>
+
         <button
           onClick={onBookAppointment}
           className="flex items-center bg-gradient-to-r from-blue-600 to-green-600 hover:from-blue-700 hover:to-green-700 text-white text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transition-all duration-300 mx-auto"
