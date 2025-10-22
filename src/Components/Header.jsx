@@ -16,12 +16,12 @@ const Header = ({ onBookAppointment }) => (
       <a href="#testimonials" className="hover:text-blue-600 transition">Testimonials</a>
     </nav>
 
-    <button
+    {/* <button
       onClick={onBookAppointment}
       className="bg-gradient-to-r from-blue-600 to-green-500 text-white px-5 py-2 rounded-full shadow hover:opacity-90 transition"
     >
       Book Appointment
-    </button>
+    </button> */}
   </header>
 );
 
