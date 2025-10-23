@@ -114,51 +114,74 @@ const Header = () => {
       </div>
 
       {/* Mobile Sidebar */}
-      <div
-        className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ${
-          isSidebarOpen ? "translate-x-0" : "translate-x-full"
-        } md:hidden`}
-      >
-        <div className="flex justify-end p-4">
-          <button onClick={toggleSidebar} className="focus:outline-none">
-            <X size={24} />
-          </button>
-        </div>
+ {/* Mobile Sidebar */}
+<div
+  className={`fixed top-0 right-0 h-full w-64 bg-white shadow-lg transform transition-transform duration-300 ${
+    isSidebarOpen ? "translate-x-0" : "translate-x-full"
+  } md:hidden`}
+>
+  <div className="flex justify-end p-4">
+    <button onClick={toggleSidebar} className="focus:outline-none">
+      <X size={24} />
+    </button>
+  </div>
 
-        <nav className="flex flex-col mt-10 space-y-6 px-6 text-gray-700 font-medium">
-          <a href="#how" onClick={toggleSidebar} className="hover:text-blue-600 transition">
-            How It Works
-          </a>
-          <a href="#why" onClick={toggleSidebar} className="hover:text-blue-600 transition">
-            Why Us
-          </a>
+  <nav className="flex flex-col mt-10 space-y-6 px-6 text-gray-700 font-medium">
+    <a
+      href="#how"
+      onClick={(e) => {
+        e.preventDefault();
+        toggleSidebar();
+        scrollToSection("#how");
+      }}
+      className="hover:text-blue-600 transition"
+    >
+      How It Works
+    </a>
 
-          {/* Services in mobile sidebar */}
-          <div>
-            <p className="font-semibold mb-2 text-blue-600">Services</p>
-            <div className="flex flex-col gap-2">
-              {services.map((service, i) => (
-                <a
-                  key={i}
-                  href={service.link}
-                  onClick={toggleSidebar}
-                  className="text-gray-700 hover:text-green-600 transition text-sm"
-                >
-                  {service.name}
-                </a>
-              ))}
-            </div>
-          </div>
+    <a
+      href="#why"
+      onClick={(e) => {
+        e.preventDefault();
+        toggleSidebar();
+        scrollToSection("#why");
+      }}
+      className="hover:text-blue-600 transition"
+    >
+      Why Us
+    </a>
 
+    {/* Services in mobile sidebar */}
+    <div>
+      <p className="font-semibold mb-2 text-blue-600">Services</p>
+      <div className="flex flex-col gap-2">
+        {services.map((service, i) => (
           <a
-            href="#testimonials"
+            key={i}
+            href={service.link}
             onClick={toggleSidebar}
-            className="hover:text-blue-600 transition"
+            className="text-gray-700 hover:text-green-600 transition text-sm"
           >
-            Testimonials
+            {service.name}
           </a>
-        </nav>
+        ))}
       </div>
+    </div>
+
+    <a
+      href="#testimonials"
+      onClick={(e) => {
+        e.preventDefault();
+        toggleSidebar();
+        scrollToSection("#testimonials");
+      }}
+      className="hover:text-blue-600 transition"
+    >
+      Testimonials
+    </a>
+  </nav>
+</div>
+
     </header>
   );
 };
