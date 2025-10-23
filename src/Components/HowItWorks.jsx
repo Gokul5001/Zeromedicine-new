@@ -31,7 +31,7 @@ const HowItWorks = () => (
             icon: <path strokeLinecap="round" strokeLinejoin="round" d="M13 16h-1v-4h-1m2 0a4 4 0 10-4-4 4 4 0 004 4z" />,
           },
         ].map((step, i) => (
-          <div key={i} className="flex flex-col items-center text-center">
+          <div key={i} className="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition flex flex-col items-center text-center">
             <div className={`w-16 h-16 rounded-full bg-${step.color}-50 flex items-center justify-center mb-4`}>
               <svg className={`w-8 h-8 text-${step.color}-600`} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 {step.icon}
