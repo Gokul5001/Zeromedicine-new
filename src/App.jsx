@@ -14,7 +14,7 @@ const App = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800 font-sans relative overflow-hidden">
+    <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800 relative overflow-hidden ">
       <Header onBookAppointment={scrollToAppointment} />
       <HeroSection onBookAppointment={scrollToAppointment} />
       <AppointmentForm />

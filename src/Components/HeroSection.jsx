@@ -20,7 +20,7 @@ const HeroSection = ({ onBookAppointment }) => (
         transition={{ duration: 0.8 }}
         className="max-w-4xl mx-auto"
       >
-   <h1 className="text-3xl sm:text-4xl md:text-6xl mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-snug">
+   <h1 className="text-3xl sm:text-4xl md:text-6xl mb-6 bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent leading-snug ">
   Take Control of Your Health, Naturally.
 </h1>
 
