@@ -56,11 +56,12 @@ const WhyChooseUs = () => (
         Why Choose <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Zeromedixine</span>
       </h2>
       <div className="flex justify-center mb-10">
-  <img
-    src={doctorsGroup}
-    alt="Group of doctors"
-    className="w-[600px] h-[350px] object-cover rounded-2xl shadow-md"
-  />
+ <img
+  src={doctorsGroup}
+  alt="Group of doctors"
+  className="w-80 md:w-[400px] h-48 md:h-[250px] object-cover rounded-2xl shadow-md"
+/>
+
 </div>
 
       <p className="text-gray-600 mb-14">
