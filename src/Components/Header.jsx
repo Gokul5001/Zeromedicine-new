@@ -200,8 +200,15 @@ const Header = () => {
   const [isServicesOpen, setIsServicesOpen] = useState(false);
 
   const toggleSidebar = () => setIsSidebarOpen(!isSidebarOpen);
-  const toggleExplore = () => setIsExploreOpen(!isExploreOpen);
-  const toggleServices = () => setIsServicesOpen(!isServicesOpen);
+  const toggleExplore = () => {
+    setIsExploreOpen((prev) => !prev);
+    setIsServicesOpen(false); // close services dropdown
+  };
+  
+  const toggleServices = () => {
+    setIsServicesOpen((prev) => !prev);
+    setIsExploreOpen(false); // close explore dropdown
+  };
 
   const services = [
     { name: "Pain Relief", link: "/pain-relief" },
@@ -261,68 +268,69 @@ const Header = () => {
         </button>
 
         {/* Explore Dropdown */}
-        <div className="relative">
-          <button
-            onClick={toggleExplore}
-            className="flex items-center gap-1 hover:text-blue-600 transition focus:outline-none"
-          >
-            Explore <ChevronDown size={18} />
-          </button>
+  {/* Explore Dropdown */}
+<div className="relative">
+  <button
+    onClick={toggleExplore}
+    className="flex items-center gap-1 hover:text-blue-600 transition focus:outline-none"
+  >
+    Explore <ChevronDown size={18} />
+  </button>
 
-          {isExploreOpen && (
-            <div
-              onMouseLeave={() => setIsExploreOpen(false)}
-              className="absolute top-8 left-0 bg-white shadow-lg rounded-lg w-56 border border-gray-100 py-2"
-            >
-              {explore.map((item, index) => (
-                <a
-                  key={index}
-                  href={item.id}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setIsExploreOpen(false);
-                    scrollToSection(item.id);
-                  }}
-                  className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                >
-                  {item.name}
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
+  {isExploreOpen && (
+    <div
+      onMouseLeave={() => setIsExploreOpen(false)}
+      className="absolute top-8 left-0 bg-white shadow-lg rounded-lg w-56 border border-gray-100 py-2"
+    >
+      {explore.map((item, index) => (
+        <a
+          key={index}
+          href={item.id}
+          onClick={(e) => {
+            e.preventDefault();
+            setIsExploreOpen(false);
+            scrollToSection(item.id);
+          }}
+          className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+        >
+          {item.name}
+        </a>
+      ))}
+    </div>
+  )}
+</div>
 
-        {/* Services Dropdown */}
-        <div className="relative">
-          <button
-            onClick={toggleServices}
-            className="flex items-center gap-1 hover:text-blue-600 transition focus:outline-none"
-          >
-            Services <ChevronDown size={18} />
-          </button>
+{/* Services Dropdown */}
+<div className="relative">
+  <button
+    onClick={toggleServices}
+    className="flex items-center gap-1 hover:text-blue-600 transition focus:outline-none"
+  >
+    Services <ChevronDown size={18} />
+  </button>
 
-          {isServicesOpen && (
-            <div
-              onMouseLeave={() => setIsServicesOpen(false)}
-              className="absolute top-8 -right-1/2 bg-white shadow-lg rounded-lg w-56 border border-gray-100 py-2"
-            >
-              {services.map((service, index) => (
-              
-                <a
-                  key={index}
-                  href={service.link}
-                  onClick={() => {
-                    setIsServicesOpen(false);
-                    navigate(service.link);
-                  }}
-                  className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
-                >
-                  {service.name}
-                </a>
-              ))}
-            </div>
-          )}
-        </div>
+  {isServicesOpen && (
+    <div
+      onMouseLeave={() => setIsServicesOpen(false)}
+      className="absolute top-8 -right-1/2 bg-white shadow-lg rounded-lg w-56 border border-gray-100 py-2"
+    >
+      {services.map((service, index) => (
+        <a
+          key={index}
+          href={service.link}
+          onClick={() => {
+            setIsServicesOpen(false);
+            navigate(service.link);
+          }}
+          className="block px-4 py-2 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition"
+        >
+          {service.name}
+        </a>
+      ))}
+    </div>
+  )}
+</div>
+
       </nav>
 
       {/* Mobile Hamburger */}

@@ -12,6 +12,7 @@ import PainRelief from "./Components/services/PainRelief";
 import FitnessNutrition from "./Components/services/FitnessNutrition";
 import LifestyleDiseases from "./Components/services/Lifestyle_diseases";
 import SexualWellness from "./Components/services/Sexual_wellness";
+import ScrollToTop from "./Components/ScrollToTop"; // ✅ new import
 
 const App = () => {
   const scrollToAppointment = () => {
@@ -20,14 +21,13 @@ const App = () => {
 
   return (
     <Router>
+      <ScrollToTop /> {/* ✅ ensures page starts from top when route changes */}
+
       <div className="min-h-screen bg-gradient-to-b from-white to-blue-50 text-gray-800 relative overflow-hidden">
-        {/* Header and WhatsApp should always be visible */}
         <Header onBookAppointment={scrollToAppointment} />
         <FloatingWhatsApp />
 
-        {/* Routes */}
         <Routes>
-          {/* Home Page */}
           <Route
             path="/"
             element={
@@ -40,21 +40,16 @@ const App = () => {
               </>
             }
           />
-
-          {/* Services Pages */}
           <Route path="/pain-relief" element={<PainRelief scrollToAppointment={scrollToAppointment} />} />
-          <Route path="/fitness-nutrition" element={<FitnessNutrition scrollToAppointment={scrollToAppointment}  />} />
-          <Route path="/life-style-diseases" element={<LifestyleDiseases scrollToAppointment={scrollToAppointment}  />} />
-          <Route path="/sexual-wellness" element={<SexualWellness scrollToAppointment={scrollToAppointment}  />} />
+          <Route path="/fitness-nutrition" element={<FitnessNutrition scrollToAppointment={scrollToAppointment} />} />
+          <Route path="/life-style-diseases" element={<LifestyleDiseases scrollToAppointment={scrollToAppointment} />} />
+          <Route path="/sexual-wellness" element={<SexualWellness scrollToAppointment={scrollToAppointment} />} />
         </Routes>
 
-        {/* Footer visible on all pages */}
         <Footer onBookAppointment={scrollToAppointment} />
       </div>
     </Router>
   );
 };
-
-
 
 export default App;
