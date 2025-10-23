@@ -1,4 +1,6 @@
 import React from "react";
+import doctorsGroup from "../assets/LOGO.jpg";
+
 
 const features = [
   {
@@ -47,10 +49,21 @@ const features = [
 const WhyChooseUs = () => (
   <section id="why" className="py-24 px-4 bg-gradient-to-br from-blue-50 via-white to-green-50">
     <div className="container mx-auto text-center">
-      <h2 className="text-3xl md:text-4xl mb-3 text-gray-800">
+        {/* 👩‍⚕️👨‍⚕️ Doctors Group Image */}
+      {/* 👨‍⚕️ Doctors Group Image */}
+   
+      <h2 className="text-3xl md:text-4xl mb-9 text-gray-800">
         Why Choose <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Zeromedixine</span>
       </h2>
-      <p className="text-gray-600 mb-16">
+      <div className="flex justify-center mb-10">
+  <img
+    src={doctorsGroup}
+    alt="Group of doctors"
+    className="w-[600px] h-[350px] object-cover rounded-2xl shadow-md"
+  />
+</div>
+
+      <p className="text-gray-600 mb-14">
         Your health, our commitment. Here's what sets us apart.
       </p>
 
