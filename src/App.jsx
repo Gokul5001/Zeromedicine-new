@@ -13,6 +13,8 @@ import FitnessNutrition from "./Components/services/FitnessNutrition";
 import LifestyleDiseases from "./Components/services/Lifestyle_diseases";
 import SexualWellness from "./Components/services/Sexual_wellness";
 import ScrollToTop from "./Components/ScrollToTop"; // ✅ new import
+import BMICalculator from "./Components/BMICalculator";
+
 
 const App = () => {
   const scrollToAppointment = () => {
@@ -36,7 +38,9 @@ const App = () => {
                 <AppointmentForm />
                 <HowItWorks />
                 <WhyChooseUs />
+                <BMICalculator /> {/* ✅ New Section */}
                 <Testimonials />
+
               </>
             }
           />
