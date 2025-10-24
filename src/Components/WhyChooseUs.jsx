@@ -47,7 +47,7 @@ const features = [
 ];
 
 const WhyChooseUs = () => (
-  <section id="why" className="py-24 px-4 bg-gradient-to-br from-blue-50 via-white to-green-50">
+  <section id="why" className="py-16 px-4 bg-gradient-to-br from-blue-50 via-white to-green-50">
     <div className="container mx-auto text-center">
         {/* 👩‍⚕️👨‍⚕️ Doctors Group Image */}
       {/* 👨‍⚕️ Doctors Group Image */}

@@ -1,7 +1,7 @@
 import React from "react";
 
 const Testimonials = () => (
-  <section id="testimonials" className="py-24 px-4 bg-gradient-to-br from-white via-blue-50 to-green-50">
+  <section id="testimonials" className="py-16 px-4 bg-gradient-to-br from-white via-blue-50 to-green-50">
     <div className="container mx-auto text-center">
       <h2 className="text-3xl md:text-4xl mb-3 text-gray-800">
         Success <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Stories</span>

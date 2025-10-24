@@ -1,7 +1,7 @@
 import React from "react";
 
 const HowItWorks = () => (
-  <section id="how" className="py-24 px-4 bg-white">
+  <section id="how" className="py-16 px-4 bg-white">
     <div className="container mx-auto text-center">
       <h2 className="text-3xl md:text-4xl mb-3 text-gray-800">
         How <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Zeromedixine</span> Works

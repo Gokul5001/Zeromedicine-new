@@ -20,7 +20,7 @@ const BMICalculator = () => {
   };
 
   return (
-    <section id="bmi" className="py-20 px-6 bg-gradient-to-br from-green-50 via-white to-blue-50 text-center">
+    <section id="bmi" className="py-16 px-6 bg-gradient-to-br from-green-50 via-white to-blue-50 text-center">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-3xl md:text-4xl font-semibold mb-3 text-gray-800">
           Check Your <span className="bg-gradient-to-r from-green-600 to-blue-600 bg-clip-text text-transparent">BMI</span>
