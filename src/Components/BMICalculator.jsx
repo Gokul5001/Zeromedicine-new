@@ -27,7 +27,7 @@ const BMICalculator = () => {
 
   return (
     <section id="bmi" className="min-h-screen flex flex-col items-center justify-center bg-gradient-to-br from-green-50 via-white to-blue-50 px-4 py-10">
-      <div className="bg-white shadow-2xl rounded-2xl p-8 max-w-md w-full text-center">
+      <div className="bg-white shadow-lg rounded-2xl p-8 max-w-md w-full text-center">
       <h2 className="text-3xl md:text-4xl mb-9 text-gray-800">
         BMI <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-green-600 bg-clip-text text-transparent">Calculator</span>
       </h2>
