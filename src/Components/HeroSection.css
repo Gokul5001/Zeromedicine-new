@@ -1,0 +1,105 @@
+.zm2-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 28px rgba(30,143,211,0.40) !important;
+}
+.zm2-btn-secondary:hover {
+  background: rgba(240,250,248,0.95) !important;
+  border-color: #3ec6b0 !important;
+}
+.zm2-feat-card:hover {
+  border-color: #1e8fd344 !important;
+  box-shadow: 0 4px 16px rgba(30,143,211,0.08) !important;
+}
+.zm2-trust-item { border-right: 1px solid rgba(0,0,0,0.07); }
+.zm2-trust-item:last-child { border-right: none; }
+.zm2-trust-item:hover {
+  background: #f0faf8 !important;
+}
+
+.zm2-mobile-image-wrap { display: none; }
+.zm2-float-card-mobile { display: none; }
+
+/* ── Tablet ─────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .zm2-feat-grid { grid-template-columns: repeat(2, 1fr) !important; }
+  .zm2-trust-strip { grid-template-columns: repeat(2, 1fr) !important; }
+  .zm2-h1 { font-size: 40px !important; }
+  .zm2-hero-content { padding: 40px 24px 48px !important; }
+  .zm2-overlay { background: rgba(240,246,250,0.93) !important; }
+  .zm2-float-card { display: none !important; }
+  .zm2-deco-circle { display: none !important; }
+}
+
+/* ── Mobile: rebuild the hero into a clean, LCP-friendly stacked layout ──
+   Priority order for first paint:
+   1. Eyebrow + H1 + subtext render immediately (no network wait) — this
+      is the element we want the browser to pick as the LCP node.
+   2. Hero image is intentionally kept SMALL (140px tall) and lightweight,
+      so even if it paints after the text, it can't out-size the text block
+      and steal the LCP slot, and it downloads fast on slow connections.
+   3. Feature cards, which added visual clutter without adding conversion
+      value on small screens, are dropped in favor of the lighter trust
+      strip below the fold.
+*/
+@media (max-width: 640px) {
+  /* Kill all background layers for pure white */
+  .zm2-bg-image { display: none !important; }
+  .zm2-overlay { display: none !important; }
+  .zm2-deco-circle { display: none !important; }
+
+  .zm2-root,
+  #home.zm2-root {
+    background: #ffffff !important;
+  }
+
+  .zm2-feat-grid { display: none !important; }
+
+  .zm2-hero-content {
+    position: relative !important;
+    z-index: 3;
+    max-width: 100% !important;
+    min-height: auto !important;
+    padding: 88px 18px 32px !important;
+    background: #ffffff !important;
+  }
+
+  .zm2-h1 { font-size: 30px !important; margin-bottom: 10px !important; }
+  .zm2-subtext { max-width: 100% !important; font-size: 14.5px !important; margin-bottom: 16px !important; }
+
+  /* Image block: shows AFTER the text in source order and is capped at
+     140px tall so it never becomes the largest painted element on screen. */
+  .zm2-mobile-image-wrap {
+    display: block !important;
+    position: relative !important;
+    margin: 0 0 16px !important;
+  }
+  .zm2-mobile-image {
+    display: block !important;
+    width: 100% !important;
+    height: 140px !important;
+    object-fit: cover !important;
+    object-position: top center !important;
+    border-radius: 16px !important;
+    margin: 0 !important;
+  }
+
+  .zm2-float-card-mobile {
+    display: block !important;
+    position: absolute !important;
+    top: 8px !important;
+    left: 8px !important;
+    z-index: 5;
+    max-width: 160px !important;
+    padding: 7px 8px !important;
+  }
+  .zm2-float-card-mobile .zm2-quote-text { font-size: 10px !important; line-height: 1.35 !important; }
+  .zm2-float-card-mobile .zm2-quote-badge { font-size: 8.5px !important; padding: 2px 5px !important; white-space: normal !important; }
+
+  .zm2-cta-row { flex-direction: column !important; align-items: stretch !important; gap: 8px !important; margin-bottom: 16px !important; }
+  .zm2-cta-row button { width: 100% !important; justify-content: center !important; padding: 12px 20px !important; }
+
+  .zm2-proof-row { flex-direction: row !important; flex-wrap: wrap !important; align-items: center !important; gap: 10px 16px !important; padding-top: 14px !important; }
+  .zm2-proof-sep { display: none !important; }
+
+  .zm2-trust-strip { display: none !important; }
+}

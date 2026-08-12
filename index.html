@@ -1,16 +1,310 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-  <!-- ✅ Google Font: Ubuntu -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
 
+    <link rel="preload" as="fetch" crossorigin
+  href="https://srv1090011.hstgr.cloud/api/doctor-auth/public/doctors?page=1&limit=12">
+
+
+<link rel="preconnect" href="https://zeromedixine-doctor-images.s3.ap-south-1.amazonaws.com" crossorigin>
+<link
+    rel="preconnect"
+    href="https://srv1090011.hstgr.cloud"
+    crossorigin
+><!-- ADD these instead: -->
+
+<link rel="preload" href="/fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin>
+
+
+
+<!-- <link rel="preconnect" href="https://www.clarity.ms"> -->
+
+<!-- <link rel="preload" href="/fonts/Montserrat-Medium.woff2" as="font" type="font/woff2" crossorigin> -->
+<!-- <link rel="preload" as="image" href="/assets/doctor_image.webp" fetchpriority="high" type="image/webp"> -->
+<link rel="preload" as="image" href="/physio.webp" >
+<link
+rel="dns-prefetch"
+href="//srv1090011.hstgr.cloud"
+>
+<link
+rel="dns-prefetch"
+href="//zeromedixine-doctor-images.s3.ap-south-1.amazonaws.com"
+>
+<meta charset="UTF-8" />
+
+    <!-- Open Graph Meta Tags -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Best Advanced Physiotherapy in India | Zeromedixine Clinic" />
+<meta property="og:description" content="Looking for advanced physiotherapy in India? Zeromedixine provides expert-led, non-invasive therapies for pain management and rehabilitation. " />
+<meta property="og:url" content="https://www.zeromedixine.com/" />
+<meta property="og:image" content="https://www.zeromedixine.com/zeromedixine.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="Zeromedixine" />
+
+<!-- Twitter Card Meta Tags -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Best Advanced Physiotherapy in India | Zeromedixine Clinic" />
+<meta name="twitter:description" content="Looking for advanced physiotherapy in India? Zeromedixine provides expert-led, non-invasive therapies for pain management and rehabilitation. " />
+<meta name="twitter:image" content="https://www.zeromedixine.com/zeromedixine.png" />
+
+
+  
+
+    <link rel="icon" href="../frontend//public/zeromedixine-logo.webp" />
+  
+    <!-- <title>India’s First Physiotherapy Platform for Chronic Orthopedic Care Without Surgery</title> -->
+    <title>Best Advanced Physiotherapy in India | Zeromedixine Clinic</title>
+    <meta
+    name="description"
+    content="Looking for advanced physiotherapy in India? Zeromedixine provides expert-led, non-invasive therapies for pain management and rehabilitation. "  />
+  
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zeromedixine: Your Online Clinic for Physiotherapy</title>
+    
+
+    <!-- Google tag (gtag.js) -->
+<!-- <script async src="https://www.googletagmanager.com/gtag/js?id=AW-17925507517"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'AW-17925507517');
+</script> -->
+
+
   </head>
+<!-- 
+  <script>
+
+    
+    function loadThirdParty() {
+
+        // Google Ads
+  // const gtagScript = document.createElement("script");
+  // gtagScript.async = true;
+  // gtagScript.src =
+  //   "https://www.googletagmanager.com/gtag/js?id=AW-17925507517";
+
+  // document.head.appendChild(gtagScript);
+
+  // window.dataLayer = window.dataLayer || [];
+
+  // function gtag() {
+  //   dataLayer.push(arguments);
+  // }
+
+  // gtag("js", new Date());
+  // gtag("config", "AW-17925507517");
+
+
+
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-NFCWG5XN');
+  
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '902429289124498');
+      fbq('track', 'PageView');
+    }
+  
+
+    let loaded = false;
+    function triggerLoad() {
+      if (loaded) return;
+      loaded = true;
+      loadThirdParty();
+    }
+    ['mousedown','keydown','touchstart','scroll'].forEach(function(e) {
+      document.addEventListener(e, triggerLoad, { once: true, passive: true });
+    });
+  if ('requestIdleCallback' in window) {
+  requestIdleCallback(triggerLoad, { timeout: 15000 });
+} else {
+  setTimeout(triggerLoad, 15000);
+ }
+  </script> -->
+
+  <script>
+      function loadClarity() {
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "vs0ta46h9t");
+  }
+
+
+    function loadThirdParty() {
+  
+      (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+      new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+      j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+      'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+      })(window,document,'script','dataLayer','GTM-NFCWG5XN');
+  
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+      n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', '902429289124498');
+      fbq('track', 'PageView');
+  
+      loadClarity();
+    }
+  
+
+  </script>
+<script>
+  function loadClarity() {
+    (function (c, l, a, r, i, t, y) {
+      c[a] =
+        c[a] ||
+        function () {
+          (c[a].q = c[a].q || []).push(arguments);
+        };
+      t = l.createElement(r);
+      t.async = 1;
+      t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0];
+      y.parentNode.insertBefore(t, y);
+    })(window, document, "clarity", "script", "vs0ta46h9t");
+  }
+
+  function loadThirdParty() {
+
+    // GTM
+    (function(w,d,s,l,i){ ... })(window,document,'script','dataLayer','GTM-NFCWG5XN');
+
+    // Facebook Pixel
+    !function(f,b,e,v,n,t,s){ ... }(...);
+
+    fbq('init', '902429289124498');
+    fbq('track', 'PageView');
+
+    // Microsoft Clarity
+    loadClarity();
+
+
+  }
+</script>
+
+<!-- ADD THIS HERE -->
+<script>
+let loaded = false;
+
+function triggerLoad() {
+  if (loaded) return;
+  loaded = true;
+  loadThirdParty();
+}
+
+["mousedown", "keydown", "touchstart", "scroll"].forEach(function (event) {
+  document.addEventListener(event, triggerLoad, {
+    once: true,
+    passive: true,
+  });
+});
+
+</script>
+
+<body>
+  
   <body>
+    
+  <!-- SEO H1 for search engines -->
+  <h1 style="position:absolute;left:-9999px;">
+    Take Control of your Pain Without Painkillers or Surgery
+  </h1>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript>
+      <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NFCWG5XN"
+        height="0" width="0" style="display:none;visibility:hidden">
+      </iframe>
+    </noscript>
+    <!-- End Google Tag Manager (noscript) -->
+
+    <!-- Meta Pixel (noscript) -->
+    <noscript>
+      <img height="1" width="1" style="display:none"
+        src="https://www.facebook.com/tr?id=902429289124498&ev=PageView&noscript=1"/>
+    </noscript>
+    <!-- End Meta Pixel (noscript) -->
+
+
+    <!-- SEO text fallback for crawlers -->
+<!-- SEO text fallback for crawlers -->
+<!-- SEO text for crawlers -->
+<div aria-hidden="true" style="position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden;">
+  <h2>Best Advanced Physiotherapy for Chronic Pain Relief in India</h2>
+  <p>Zeromedixine is India's first doctor-led physiotherapy platform for chronic orthopedic care. Our advanced physiotherapy programs treat the root causes of pain — not just the symptoms. We help patients recover from knee pain, back pain, shoulder injuries, and hip conditions without surgery.</p>
+  <p>Our team of experienced physiotherapists and orthopedic doctors design personalised rehab plans for every patient. Each recovery plan combines targeted exercises, manual therapy, and posture correction to deliver lasting relief.</p>
+  <p>We offer both online physiotherapy sessions and in-clinic appointments across India. Whether you are dealing with a sports injury, slip disc, frozen shoulder, or arthritis, our advanced physiotherapy approach helps you regain mobility and live pain-free.</p>
+  <p>Book your consultation today and take the first step towards a surgery-free recovery with Zeromedixine — India's most trusted advanced physiotherapy platform.</p>
+
+  <p>Chronic pain affects millions of Indians every day. Conditions like lumbar spondylosis, cervical pain, knee osteoarthritis, and rotator cuff injuries are increasingly common due to sedentary lifestyles and long working hours. Most patients are told surgery is the only option — but that is rarely true. With the right physiotherapy intervention, most orthopedic conditions can be treated effectively and permanently without going under the knife.</p>
+  
+  <p>At Zeromedixine, we combine clinical diagnosis with evidence-based physiotherapy protocols. Our doctors assess the root cause of your pain before designing a treatment plan. Sessions are conducted by certified physiotherapists with experience in sports rehabilitation, post-surgical recovery, and chronic pain management. We monitor your progress at every step and adjust your plan based on how your body responds.</p>
+  <p>Physiotherapy is not just about pain relief — it is about restoring function and quality of life. Many of our patients come to us after years of living with chronic pain, having tried medications, injections, and multiple consultations without lasting results. Our structured rehabilitation programs have helped thousands of patients return to normal activities, sports, and work without surgery.</p>
+
+  <p>We treat a wide range of conditions including lower back pain, sciatica, cervical spondylosis, knee replacement rehabilitation, ACL injuries, plantar fasciitis, tennis elbow, and post-fracture recovery. Each condition requires a different approach, and our physiotherapists are trained to deliver condition-specific care backed by the latest clinical research.</p>
+  
+  <p>Our online physiotherapy service is designed for patients who cannot visit a clinic due to distance, mobility issues, or busy schedules. Live video sessions with your physiotherapist ensure you receive the same quality of care at home. We also provide exercise videos, progress tracking, and direct messaging with your care team so you are never alone in your recovery journey.</p>
+  
+  <p>Zeromedixine was founded with a single mission — to make expert physiotherapy accessible to every Indian patient, regardless of where they live. We believe that surgery should always be the last resort, and that with the right guidance and consistent effort, the human body has a remarkable ability to heal itself. Join thousands of patients who have chosen advanced physiotherapy over surgery and reclaimed their active lives.</p>
+  <p>Lower back pain is one of the most common reasons people visit a physiotherapist in India. Whether caused by a herniated disc, muscle strain, or poor posture from long hours at a desk, our physiotherapists identify the exact source of your pain and build a targeted recovery plan. Most patients see significant improvement within 4 to 6 weeks of consistent treatment.</p>
+
+<p>Knee pain affects people of all ages — from young athletes with ligament injuries to older adults with osteoarthritis. At Zeromedixine, our knee rehabilitation programs combine strengthening exercises, manual therapy, and electrotherapy to reduce inflammation, restore range of motion, and help you walk, climb stairs, and move without pain.</p>
+
+<p>Neck and shoulder pain are increasingly common in India due to the rise of work-from-home culture and prolonged screen time. Cervical spondylosis, frozen shoulder, and rotator cuff injuries respond well to physiotherapy when treated early. Our specialists provide postural correction, dry needling, and targeted mobilisation techniques to resolve these conditions effectively.</p>
+
+<p>Zeromedixine's network spans major cities including Bangalore, Chennai, Hyderabad, Mumbai, Delhi, Pune, Ahmedabad, Coimbatore, Kochi, and Mysore. Patients across India trust us for both in-clinic and online physiotherapy consultations. Our doctors are available six days a week and our online platform makes it easy to book, attend, and track your sessions from anywhere.</p>
+
+<p>We also work with post-surgical patients who need structured rehabilitation after knee replacement, hip replacement, spinal surgery, or ACL reconstruction. Early physiotherapy after surgery significantly reduces recovery time, prevents complications, and helps patients regain full function faster. Our post-surgical rehab programs are designed in coordination with your operating surgeon for seamless care continuity.</p>
+
+
+  <!-- ADD THESE TWO AT THE END -->
+  <p>
+    Learn more about our services: 
+    <a href="/services">physiotherapy services</a>, 
+    <a href="/doctors">our specialist doctors</a>, 
+    <a href="/book-consultation">book a consultation</a>, 
+    <a href="/about">about Zeromedixine</a>, and 
+    <a href="/contact">contact us</a>.
+  </p>
+  <p>
+    For trusted information on physiotherapy, visit the 
+    <a href="https://www.who.int/health-topics/rehabilitation" rel="nofollow" target="_blank">WHO rehabilitation page</a>.
+  </p>
+
+  
+</div>
+
+
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
